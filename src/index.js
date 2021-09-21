@@ -11,10 +11,10 @@ import {
   gql
 } from "@apollo/client";
 
-import apolo from './components/apolo'
+import client from './components/apolo'
 
 ReactDOM.render(
-  <ApolloProvider client={apolo}>
+  <ApolloProvider client={client}>
     <React.StrictMode>
       <App />
     </React.StrictMode>

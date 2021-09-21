@@ -15,12 +15,12 @@ const client = new ApolloClient({
     }
 });
 
-function apolo() {
-    return (
-        <div>
+// function apolo() {
+//     return (
+//         <div>
 
-        </div>
-    )
-}
+//         </div>
+//     )
+// }
 
-export default apolo
+export default client
