@@ -6,7 +6,8 @@ import {
   InMemoryCache,
   ApolloProvider,
   useQuery,
-  gql
+  gql,
+  useLazyQuery
 } from "@apollo/client";
 import SVG from 'components/SVG';
 
@@ -20,18 +21,17 @@ const query = gql`
   }
   `;
 function TodoList() {
-  const { data, load, err } = useQuery(query)
-  if (load) {
+  const { loading, err, data } = useQuery(query)
+  const [list, setList] = useState([]);
+  const [title, setTitle] = useState('');
+
+  if (loading) {
     return <SVG />
   }
-
   if (err) {
     console.log(err)
     return null
   }
-  const [list, setList] = useState([]);
-  const [title, setTitle] = useState('');
-
   const onChangeTitle = (e) => {
     if (e.target) {
       setTitle(e.target.value);
@@ -60,7 +60,7 @@ function TodoList() {
       <div className='container'>
         <h1 className='app-title'>todos</h1>
         <ul className='todo-list js-todo-list'>
-          {data.todolist.map((v, i) => (
+          {data?.todolist.map((v, i) => (
             <Todo
               key={i}
               id={i}
