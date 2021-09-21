@@ -1,2 +1,1 @@
-# todolist_GraphQL_starter
-todolist yang digunakan pada video GraphQL 
+Main Branch bukan fungsionalitas utama, jika Mau clone bisa gunain branch yang lain
